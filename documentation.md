@@ -1,6 +1,6 @@
 # Marko's Design Pack (MDP) Documentation
 
-To add MDP to your html project simply add the followeing code t the head of your html file
+To add MDP to your html project simply add the following code to the head of your html file
 
 ```HTML
     <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
@@ -55,7 +55,7 @@ Buttons are quite possibly the simplest thing in MDP; you just add a button as y
     <button>Button</button>
 ```
 
-And then we add the `mdp-position` property; there are four positions you can choose from: either `mdp-position="left"`, `mdp-position="middle"`, `mdp-position="right"` or `mdp-position="none"`. The first three are self-explanatory, and the `none` property allows you to set your own rules using custom CSS rules.
+And then we add the `mdp-position` property; there are four positions you can choose from: either `mdp-position="left"`, `mdp-position="middle"`, `mdp-position="right"` or `mdp-position="none"`. The first three are self-explanatory, and the `none` property allows you to set your own rules using custom CSS.
 
 ```HTML
     <button mdp-position="middle">Button</button>
@@ -67,7 +67,7 @@ Using the code above we get:
 
 ## Titles
 
-When adding a title in MDP we start of by adding an H1 thru H6 tags
+When adding a title in MDP we start off by adding an H1-H6 tags
 
 ```HTML
 <h1>Big title</h1>
@@ -101,13 +101,13 @@ Paragraphs in MDP work like titles, just add a `<p>` tag and optionally add the 
 <p mdp-position="middle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?</p>
 ```
 
-With the code abowe we get:
+With the code above we get:
 <img src="https://i.ibb.co/dmbtBSh/image.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;">
 
 ##Links
 
-When creating links you start with the `<a>` tag then you add the href, it'll look like this
+When creating links you start with the `<a>` tag then you add the `href`, it'll look like this:
 
 ```HTML
 <a href="https://example.com">Lorem ipsum</a>
@@ -129,7 +129,7 @@ with the code above we get
 
 Codeblock can be used to display code, with support of syntax highlighting for a wide variety of programming languages.
 
-To add a codeblock simply add a `<code>` tag. Make sure you also add the `mdp-language=""` attribute with the language the code you want to display is written in.
+To add a codeblock simply add a `<code>` tag. Make sure you also add the `mdp-language=""` attribute with the language the code you want to display is written in for syntax highlighting.
 
 So for example this code:
 
