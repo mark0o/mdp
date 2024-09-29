@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markos design pack (MDP)</title>
+    <script defer src="main.js"></script>
+  </head>
+
+  <body>
+    <div id="Inputs">
+      <input type="text" mdp-label="text" />
+      <input type="number" mdp-label="number" />
+      <input type="password" mdp-label="password" />
+    </div>
+    <div id="Buttons">
+      <button mdp-position="middle">Button</button>
+    </div>
+    <div id="Titles">
+      <h1 mdp-position="left">Big title</h1>
+      <h2 mdp-position="middle">Slightly smaller title</h2>
+      <h3 mdp-position="right">Even smaller title</h3>
+      <h4 mdp-position="left">Small title</h4>
+      <h5 mdp-position="middle">Slightly smaller title</h5>
+      <h6 mdp-position="right">Tiny title</h6>
+    </div>
+    <div id="Paragraphs">
+      <p mdp-position="middle">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
+        numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
+        molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
+      </p>
+    </div>
+    <div id="Links">
+      <a href="https://example.com" mdp-display="block" mdp-position="right"
+        >Lorem ipsum</a
+      >
+    </div>
+    <div id="Code">
+      <code mdp-display="block" mdp-language="HTML">
+        <div>
+          <span>Hello, World!</span>
+        </div>
+      </code>
+      Inline Codeblock:
+      <code mdp-display="inline" mdp-language="HTML">
+        <span class="greeting">Hello, World!</span> </code
+      >. It is positioned like regular text but looks like a Codeblock.
+    </div>
+  </body>
+</html>

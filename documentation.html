@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>documentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="markos-design-pack-mdp-documentation">Markos Design Pack (MDP) Documentation</h1>
+<p>To add MDP to your html project simply add the followeing code t the head of your html file</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://marko.iric.online/mdp/mdp-src.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+<h3 id="table-of-contents">Table of contents:</h3>
+<ul>
+<li>Inputs</li>
+<li>Buttons</li>
+<li>Titles</li>
+<li>Paragraphs</li>
+<li>Links</li>
+<li>Codeblocks</li>
+<li>Inline Codeblock</li>
+</ul>
+<h2 id="inputs">Inputs</h2>
+<p>Only three input types are supported for now. (more scheduled for the future) Those are:</p>
+<ul>
+<li>Text</li>
+<li>Numbers</li>
+<li>Passwords</li>
+</ul>
+<p>To create an input, you start as you would in regular HTML:</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>&gt;</span>    
+</div></code></pre>
+<p>Then add the type; as I said, there are only 3 input types supported yet, which are <code>type=&quot;text&quot;</code>, <code>type=&quot;password&quot;</code>, and <code>type=&quot;number&quot;</code>. Add whichever suits your needs best.</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>    
+</div></code></pre>
+<p>Lastly, we must add the label; we do that with 'mdp-label=&quot;&quot;`</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">mdp-label</span>=<span class="hljs-string">"Write here!"</span>&gt;</span>    
+</div></code></pre>
+<p>We will get:  
+<img src="https://i.ibb.co/R30zN0F/image.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"><br>
+And that was how to add an input; obviously, it is the same with the other input types; just change the <code>type=&quot;text&quot;</code> to whichever you need.</p>
+<h2 id="buttons">Buttons</h2>
+<p>Buttons are quite possibly the simplest thing in MDP; you just add a button as you would in HTML.</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+<p>And then we add the <code>mdp-position</code> property; there are four positions you can choose from: either <code>mdp-position=&quot;left&quot;</code>, <code>mdp-position=&quot;middle&quot;</code>, <code>mdp-position=&quot;right&quot;</code> or <code>mdp-position=&quot;none&quot;</code>. The first three are self-explanatory, and the <code>none</code> property allows you to set your own rules using custom CSS rules.</p>
+<pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+<p>Using the code above we get:<br>
+<img src="https://i.ibb.co/Bn3BD4L/image.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
+<h2 id="titles">Titles</h2>
+<p>When adding a title in MDP we start of by adding an H1 thru H6 tags</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Big title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Slightly smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Even smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Small title<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>Slightly smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>Tiny title<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
+</div></code></pre>
+<p>Then we can add an <code>mdp-position</code> tag, which we use to align the text. The <code>mdp-position</code> tag works the exact same as with buttons.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"left"</span>&gt;</span>Big title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Slightly smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"right"</span>&gt;</span>Even smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"left"</span>&gt;</span>Small title<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Slightly smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"right"</span>&gt;</span>Tiny title<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
+</div></code></pre>
+<p>The result is:
+<img src="https://i.ibb.co/1LNgTD8/C-Users-marko-One-Drive-Desktop-Markos-Design-pack-index-html.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
+<h2 id="paragraphs">Paragraphs</h2>
+<p>Paragraphs in MDP work like titles, just add a <code>&lt;p&gt;</code> tag and optionally add the <code>mdp-position</code> property.</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<p>With the code abowe we get:
+<img src="https://i.ibb.co/dmbtBSh/image.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
+<p>##Links</p>
+<p>When creating links you start with the <code>&lt;a&gt;</code> tag then you add the href, it'll look like this</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.com"</span>&gt;</span>Lorem ipsum<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+<p>and that is it!</p>
+<p>If you want to add more customization you can change the <code>mdp-position=&quot;&quot;</code> property <strong>but</strong> in the case of links we must first set the <code>mdp-display=&quot;&quot;</code> property to <code>block</code></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.com"</span> <span class="hljs-attr">mdp-display</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"right"</span>&gt;</span>Lorem ipsum<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+<p>with the code above we get
+<img src="https://i.ibb.co/0J5gc0P/C-Users-marko-One-Drive-Desktop-Markos-Design-pack-index-html-1.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
+<h2 id="codeblock">Codeblock</h2>
+<p>Codeblock can be used to display code, with support of syntax highlighting for a wide variety of programming languages.</p>
+<p>To add a codeblock simply add a <code>&lt;code&gt;</code> tag. Make sure you also add the <code>mdp-language=&quot;&quot;</code> attribute with the language the code you want to display is written in.</p>
+<p>So for example this code:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">code</span> <span class="hljs-attr">mdp-display</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">mdp-language</span>=<span class="hljs-string">"HTML"</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"greeting"</span>&gt;</span>Hello, World!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+</div></code></pre>
+<p>would look like this:
+<img src="https://i.ibb.co/ZdpP6Yz/C-Users-marko-One-Drive-Desktop-Markos-Design-pack-index-html-3.png"
+     style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
+
+</body>
+</html>
