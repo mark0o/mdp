@@ -1,4 +1,4 @@
-# Markos Design Pack (MDP) Documentation
+# Marko's Design Pack (MDP) Documentation
 
 To add MDP to your html project simply add the followeing code t the head of your html file
 
