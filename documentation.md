@@ -14,7 +14,6 @@ To add MDP to your html project simply add the following code to the head of you
 - Paragraphs
 - Links
 - Codeblocks
-- Inline Codeblock
 
 ## Inputs
 
