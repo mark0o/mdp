@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Markos design pack (MDP)</title>
     <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -12,6 +13,21 @@
       <input type="text" mdp-label="text" />
       <input type="number" mdp-label="number" />
       <input type="password" mdp-label="password" />
+      <mdp-dropdown id="test" mdp-width="400px">
+        <option value="null">Select car:</option>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Citroen">Citroen</option>
+        <option value="Ford">Ford</option>
+        <option value="Honda">Honda</option>
+        <option value="Jaguar">Jaguar</option>
+        <option value="Land Rover">Land Rover</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Mini">Mini</option>
+        <option value="Nissan">Nissan</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Volvo">Volvo</option>
+      </mdp-dropdown>
     </div>
     <div id="Buttons">
       <button mdp-position="middle">Button</button>
@@ -33,7 +49,13 @@
     </div>
     <div id="Links">
       <a href="https://example.com" mdp-display="block" mdp-position="right"
-        >Lorem ipsum</a
+        >Right aligned link</a
+      >
+      <a href="https://example.com" mdp-display="block" mdp-position="middle"
+        >Center aligned link</a
+      >
+      <a href="https://example.com" mdp-display="block" mdp-position="left"
+        >Left aligned link</a
       >
     </div>
     <div id="Code">
@@ -47,5 +69,9 @@
         <span class="greeting">Hello, World!</span> </code
       >. It is positioned like regular text but looks like a Codeblock.
     </div>
+    <img src="sample.jpg" mdp-width="100px" mdp-height="200px" />
+    <img src="sample.jpg" mdp-width="100px" />
+    <img src="sample.jpg" mdp-height="100px" />
+    <img src="sample.jpg" />
   </body>
 </html>

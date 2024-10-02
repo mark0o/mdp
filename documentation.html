@@ -365,19 +365,22 @@ code {
           : 'default'
     });
   </script>
-<h1 id="markos-design-pack-mdp-documentation">Markos Design Pack (MDP) Documentation</h1>
-<p>To add MDP to your html project simply add the followeing code t the head of your html file</p>
+<h1 id="markos-design-pack-mdp-documentation">Marko's Design Pack (MDP) Documentation</h1>
+<p>To add MDP to your html project simply add the following code to the head of your html file</p>
 <pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">defer</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://marko.iric.online/mdp/mdp-src.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </div></code></pre>
 <h3 id="table-of-contents">Table of contents:</h3>
 <ul>
-<li>Inputs</li>
+<li>Inputs
+<ul>
+<li>dropdowns</li>
+</ul>
+</li>
 <li>Buttons</li>
 <li>Titles</li>
 <li>Paragraphs</li>
 <li>Links</li>
 <li>Codeblocks</li>
-<li>Inline Codeblock</li>
 </ul>
 <h2 id="inputs">Inputs</h2>
 <p>Only three input types are supported for now. (more scheduled for the future) Those are:</p>
@@ -389,7 +392,7 @@ code {
 <p>To create an input, you start as you would in regular HTML:</p>
 <pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>&gt;</span>    
 </div></code></pre>
-<p>Then add the type; as I said, there are only 3 input types supported yet, which are <code>type=&quot;text&quot;</code>, <code>type=&quot;password&quot;</code>, and <code>type=&quot;number&quot;</code>. Add whichever suits your needs best.</p>
+<p>Then add the type; as I said, there are only 4 input types supported but in this section well focus on the first three (for more info on the fourth one; dropdowns scroll to <em>Dropdowns</em>), which are <code>type=&quot;text&quot;</code>, <code>type=&quot;password&quot;</code>, and <code>type=&quot;number&quot;</code>. Add whichever suits your needs best.</p>
 <pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>    
 </div></code></pre>
 <p>Lastly, we must add the label; we do that with 'mdp-label=&quot;&quot;`</p>
@@ -399,18 +402,35 @@ code {
 <img src="https://i.ibb.co/R30zN0F/image.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"><br>
 And that was how to add an input; obviously, it is the same with the other input types; just change the <code>type=&quot;text&quot;</code> to whichever you need.</p>
+<h3 id="dropdowns">Dropdowns</h3>
+<p>Dropdowns are the fourth input type but they are special because you must add them in a different way than the other input types</p>
+<p>To add a drop down first add an <code>&lt;mdp-dropdown&gt;</code> element, then add the id attribute <code>&lt;mdp-dropdown id=&quot;test&quot;&gt;</code>. After that you can also add the <code>mdp-width</code> attribute to change the width of the dropdown (by default the dropdown is set to 100%). In the end we should get something that looks like either one of theese two examples</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">mdp-dropdown</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mdp-dropdown</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">mdp-dropdown</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span> <span class="hljs-attr">mdp-width</span>=<span class="hljs-string">"400px"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mdp-dropdown</span>&gt;</span>
+</div></code></pre>
+<p>After that we can add the options. To do that just add an <code>&lt;option&gt;</code> element inside the <code>&lt;mdp-dropdown&gt;</code>. Add the <code>value=&quot;&quot;</code> attribute to the <code>&lt;option&gt;</code>. In the end we should get something that looks like this:</p>
+<pre class="hljs"><code><div>     <span class="hljs-tag">&lt;<span class="hljs-name">mdp-dropdown</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span> <span class="hljs-attr">mdp-width</span>=<span class="hljs-string">"400px"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"null"</span>&gt;</span>Select car:<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Audi"</span>&gt;</span>Audi<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"BMW"</span>&gt;</span>BMW<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Citroen"</span>&gt;</span>Citroen<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Ford"</span>&gt;</span>Skoda<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Honda"</span>&gt;</span>Honda<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Jaguar"</span>&gt;</span>Jaguar<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">mdp-dropdown</span>&gt;</span>
+</div></code></pre>
 <h2 id="buttons">Buttons</h2>
 <p>Buttons are quite possibly the simplest thing in MDP; you just add a button as you would in HTML.</p>
 <pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </div></code></pre>
-<p>And then we add the <code>mdp-position</code> property; there are four positions you can choose from: either <code>mdp-position=&quot;left&quot;</code>, <code>mdp-position=&quot;middle&quot;</code>, <code>mdp-position=&quot;right&quot;</code> or <code>mdp-position=&quot;none&quot;</code>. The first three are self-explanatory, and the <code>none</code> property allows you to set your own rules using custom CSS rules.</p>
+<p>And then we add the <code>mdp-position</code> property; there are four positions you can choose from: either <code>mdp-position=&quot;left&quot;</code>, <code>mdp-position=&quot;middle&quot;</code>, <code>mdp-position=&quot;right&quot;</code> or <code>mdp-position=&quot;none&quot;</code>. The first three are self-explanatory, and the <code>none</code> property allows you to set your own rules using custom CSS.</p>
 <pre class="hljs"><code><div>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </div></code></pre>
 <p>Using the code above we get:<br>
 <img src="https://i.ibb.co/Bn3BD4L/image.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
 <h2 id="titles">Titles</h2>
-<p>When adding a title in MDP we start of by adding an H1 thru H6 tags</p>
+<p>When adding a title in MDP we start off by adding an H1-H6 tags</p>
 <pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Big title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Slightly smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Even smaller title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
@@ -433,11 +453,11 @@ And that was how to add an input; obviously, it is the same with the other input
 <p>Paragraphs in MDP work like titles, just add a <code>&lt;p&gt;</code> tag and optionally add the <code>mdp-position</code> property.</p>
 <pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">mdp-position</span>=<span class="hljs-string">"middle"</span>&gt;</span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </div></code></pre>
-<p>With the code abowe we get:
+<p>With the code above we get:
 <img src="https://i.ibb.co/dmbtBSh/image.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
 <p>##Links</p>
-<p>When creating links you start with the <code>&lt;a&gt;</code> tag then you add the href, it'll look like this</p>
+<p>When creating links you start with the <code>&lt;a&gt;</code> tag then you add the <code>href</code>, it'll look like this:</p>
 <pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.com"</span>&gt;</span>Lorem ipsum<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </div></code></pre>
 <p>and that is it!</p>
@@ -449,7 +469,7 @@ And that was how to add an input; obviously, it is the same with the other input
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;"></p>
 <h2 id="codeblock">Codeblock</h2>
 <p>Codeblock can be used to display code, with support of syntax highlighting for a wide variety of programming languages.</p>
-<p>To add a codeblock simply add a <code>&lt;code&gt;</code> tag. Make sure you also add the <code>mdp-language=&quot;&quot;</code> attribute with the language the code you want to display is written in.</p>
+<p>To add a codeblock simply add a <code>&lt;code&gt;</code> tag. Make sure you also add the <code>mdp-language=&quot;&quot;</code> attribute with the language the code you want to display is written in for syntax highlighting.</p>
 <p>So for example this code:</p>
 <pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">code</span> <span class="hljs-attr">mdp-display</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">mdp-language</span>=<span class="hljs-string">"HTML"</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>

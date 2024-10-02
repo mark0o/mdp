@@ -1,5 +1,7 @@
 # Marko's Design Pack (MDP) Documentation
 
+##### version 0.0.2
+
 To add MDP to your html project simply add the following code to the head of your html file
 
 ```HTML
@@ -9,11 +11,13 @@ To add MDP to your html project simply add the following code to the head of you
 ### Table of contents:
 
 - Inputs
+  - Dropdowns
 - Buttons
 - Titles
 - Paragraphs
 - Links
 - Codeblocks
+- Images
 
 ## Inputs
 
@@ -29,7 +33,7 @@ To create an input, you start as you would in regular HTML:
     <input>    
 ```
 
-Then add the type; as I said, there are only 3 input types supported yet, which are `type="text"`, `type="password"`, and `type="number"`. Add whichever suits your needs best.
+Then add the type; as I said, there are only 4 input types supported but in this section well focus on the first three (for more info on the fourth one; dropdowns scroll to _Dropdowns_), which are `type="text"`, `type="password"`, and `type="number"`. Add whichever suits your needs best.
 
 ```HTML
     <input type="text">    
@@ -45,6 +49,31 @@ We will get:  
 <img src="https://i.ibb.co/R30zN0F/image.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;">  
 And that was how to add an input; obviously, it is the same with the other input types; just change the `type="text"` to whichever you need.
+
+### Dropdowns
+
+Dropdowns are the fourth input type but they are special because you must add them in a different way than the other input types
+
+To add a drop down first add an `<mdp-dropdown>` element, then add the id attribute `<mdp-dropdown id="test">`. After that you can also add the `mdp-width` attribute to change the width of the dropdown (by default the dropdown is set to 100%). In the end we should get something that looks like either one of theese two examples
+
+```HTML
+<mdp-dropdown id="test"></mdp-dropdown>
+<mdp-dropdown id="test" mdp-width="400px"></mdp-dropdown>
+```
+
+After that we can add the options. To do that just add an `<option>` element inside the `<mdp-dropdown>`. Add the `value=""` attribute to the `<option>`. In the end we should get something that looks like this:
+
+```HTML
+     <mdp-dropdown id="test" mdp-width="400px">
+        <option value="null">Select car:</option>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Citroen">Citroen</option>
+        <option value="Ford">Skoda</option>
+        <option value="Honda">Honda</option>
+        <option value="Jaguar">Jaguar</option>
+      </mdp-dropdown>
+```
 
 ## Buttons
 
@@ -143,3 +172,5 @@ So for example this code:
 would look like this:
 <img src="https://i.ibb.co/ZdpP6Yz/C-Users-marko-One-Drive-Desktop-Markos-Design-pack-index-html-3.png"
      style="display:block;float:none;margin-left:auto;margin-right:auto; border-radius: 16px;">
+
+## Images
