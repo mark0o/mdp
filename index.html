@@ -3,75 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Markos design pack (MDP)</title>
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <script defer src="../Markos Design pack/main.js"></script>
+    <title>Test</title>
   </head>
-
-  <body>
-    <div id="Inputs">
-      <input type="text" mdp-label="text" />
-      <input type="number" mdp-label="number" />
-      <input type="password" mdp-label="password" />
+  <body style="height: 100vh">
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      "
+    >
+      <span>
+        <h1 style="font-size: 10vmin" mdp-position="middle">
+          Marko's Design Pack
+        </h1>
+        <h2 style="font-size: 3vmin" mdp-position="middle">
+          An easy to use, sleek, and modern front-end toolkit
+        </h2>
+        <button
+          onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'});"
+          mdp-position="middle"
+        >
+          Read Documentation
+        </button>
+      </span>
+    </div>
+    <hr />
+    <h2 id="intro">Introduction</h2>
+    <p>
+      To add MDP to your html project simply add the following code to the head
+      of your html file
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
+    </code>
+    <h2>Inputs</h2>
+    Four input types are supported for now, but for this part we'll focus on
+    just three. (more scheduled for the future) Those are:
+    <li>Text</li>
+    <li>Numbers</li>
+    <li>Passwords</li>
+    <p>To create an input, you start as you would in regular HTML:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input />
+    </code>
+    <p>
+      Then add the type; as I said, there are only 4 input types supported but
+      in this section well focus on the first three (for more info on the fourth
+      one; dropdowns scroll to Dropdowns), which are:
+      <code mdp-display="inline"> type="text" </code>
+      ,
+      <code mdp-display="inline"> type="number"</code>
+      , and
+      <code mdp-display="inline"> type="password" </code>
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input type="text" />
+    </code>
+    <p>Lastly, we must add the label; we do that with 'mdp-label=""`</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input type="text" mdp-label="Write here!" />
+    </code>
+    <p>We will get:</p>
+    <input type="text" mdp-label="Write here!" />
+    <h3>Dropdowns</h3>
+    <p>
+      Dropdowns are the fourth input type but they are special because you must
+      add them in a different way than the other input types
+    </p>
+    <p>
+      To add a dropdown first add an
+      <code mdp-display="inline">
+        <mdp-dropdown></mdp-dropdown>
+      </code>
+      element, then add the id attribute
+      <code mdp-display="inline">
+        <mdp-dropdown id="test"></mdp-dropdown>
+      </code>
+      . After that you can also add the
+      <code mdp-display="inline"> mdp-width </code>
+      attribute to change the width of the dropdown (by default the dropdown is
+      set to 100%). In the end we should get something that looks like either
+      one of theese two examples:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <mdp-dropdown id="test"></mdp-dropdown>
+      <mdp-dropdown id="test" mdp-width="400px"></mdp-dropdown>
+    </code>
+    <p>
+      After that we can add the options. To do that just add an
+      <code mdp-display="inline"> <option></option> </code>
+      element inside the
+      <code mdp-display="inline"> <mdp-dropdown></mdp-dropdown> </code>
+      . Add the
+      <code mdp-display="inline"> value="" </code>
+      attribute to the
+      <code mdp-display="inline"> <option></option> </code>
+      . In the end we should get something that looks like this:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
       <mdp-dropdown id="test" mdp-width="400px">
-        <option value="null">Select car:</option>
+        <option value="">Select car:</option>
         <option value="Audi">Audi</option>
         <option value="BMW">BMW</option>
         <option value="Citroen">Citroen</option>
-        <option value="Ford">Ford</option>
+        <option value="Ford">Skoda</option>
         <option value="Honda">Honda</option>
         <option value="Jaguar">Jaguar</option>
-        <option value="Land Rover">Land Rover</option>
-        <option value="Mercedes">Mercedes</option>
-        <option value="Mini">Mini</option>
-        <option value="Nissan">Nissan</option>
-        <option value="Toyota">Toyota</option>
-        <option value="Volvo">Volvo</option>
       </mdp-dropdown>
-    </div>
-    <div id="Buttons">
-      <button mdp-position="middle">Button</button>
-    </div>
-    <div id="Titles">
-      <h1 mdp-position="left">Big title</h1>
-      <h2 mdp-position="middle">Slightly smaller title</h2>
-      <h3 mdp-position="right">Even smaller title</h3>
-      <h4 mdp-position="left">Small title</h4>
-      <h5 mdp-position="middle">Slightly smaller title</h5>
-      <h6 mdp-position="right">Tiny title</h6>
-    </div>
-    <div id="Paragraphs">
-      <p mdp-position="middle">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
-        numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
-        molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
-      </p>
-    </div>
-    <div id="Links">
-      <a href="https://example.com" mdp-display="block" mdp-position="right"
-        >Right aligned link</a
-      >
-      <a href="https://example.com" mdp-display="block" mdp-position="middle"
-        >Center aligned link</a
-      >
-      <a href="https://example.com" mdp-display="block" mdp-position="left"
-        >Left aligned link</a
-      >
-    </div>
-    <div id="Code">
-      <code mdp-display="block" mdp-language="HTML">
-        <div>
-          <span>Hello, World!</span>
-        </div>
-      </code>
-      Inline Codeblock:
-      <code mdp-display="inline" mdp-language="HTML">
-        <span class="greeting">Hello, World!</span> </code
-      >. It is positioned like regular text but looks like a Codeblock.
-    </div>
-    <img src="sample.jpg" mdp-width="100px" mdp-height="200px" />
-    <img src="sample.jpg" mdp-width="100px" />
-    <img src="sample.jpg" mdp-height="100px" />
-    <img src="sample.jpg" />
+    </code>
+    <p>Documentation still in progress, more to come...</p>
   </body>
 </html>
