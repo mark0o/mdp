@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="../Markos Design pack/main.js"></script>
+    <script defer="" src="https://marko.iric.online/mdp/mdp-src.js"></script>
     <title>Test</title>
   </head>
-  <body style="height: 100vh">
+  <body style="padding-bottom: 0.5em">
     <div
       style="
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        height: 100svh;
       "
     >
       <span>
@@ -31,7 +31,7 @@
       </span>
     </div>
     <hr />
-    <h2 id="intro">Introduction</h2>
+    <h2 style="padding-top: 0.5em" id="intro">Introduction</h2>
     <p>
       To add MDP to your html project simply add the following code to the head
       of your html file
@@ -105,7 +105,7 @@
     </p>
     <code mdp-display="block" mdp-language="HTML">
       <mdp-dropdown id="test" mdp-width="400px">
-        <option value="">Select car:</option>
+        <option value="null">Select car:</option>
         <option value="Audi">Audi</option>
         <option value="BMW">BMW</option>
         <option value="Citroen">Citroen</option>
@@ -114,6 +114,180 @@
         <option value="Jaguar">Jaguar</option>
       </mdp-dropdown>
     </code>
-    <p>Documentation still in progress, more to come...</p>
+    <p>With the code above we get:</p>
+    <mdp-dropdown id="test" mdp-width="400px">
+      <option value="null">Select car:</option>
+      <option value="Audi">Audi</option>
+      <option value="BMW">BMW</option>
+      <option value="Citroen">Citroen</option>
+      <option value="Skoda">Skoda</option>
+      <option value="Honda">Honda</option>
+      <option value="Jaguar">Jaguar</option>
+    </mdp-dropdown>
+    <p>
+      Pressing the button below will show the current value, the code is no
+      different than if we were using native HTML dropdowns.
+    </p>
+    <p id="button-results"></p>
+    <button
+      onclick="document.getElementById('button-results').innerText = 'Value of dropdown is: ' + document.getElementById('test').value"
+    >
+      Check value
+    </button>
+    <h2>Buttons</h2>
+    <p>
+      Buttons are quite possibly the simplest thing in MDP; you just add a
+      button as you would in HTML and thats it.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <button>Button</button>
+    </code>
+    <p id="position-tag">
+      And then we can add the
+      <code mdp-display="inline">mdp-position</code> property; there are four
+      positions you can choose from: either
+      <code mdp-display="inline">mdp-position="left"</code>,
+      <code mdp-display="inline">mdp-position="middle"</code>,
+      <code mdp-display="inline">mdp-position="right"</code> or
+      <code mdp-display="inline">mdp-position="none"</code>. The first three are
+      self-explanatory, and the <code mdp-display="inline">none</code> property
+      allows you to set your own rules using custom CSS.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <button onclick="alert('Hello, World!')" mdp-position="middle">
+        Button
+      </button>
+    </code>
+    <p>Using the code above we get:</p>
+    <button onclick="alert('Hello, World!')" mdp-position="middle">
+      Button
+    </button>
+    <h2>Titles</h2>
+    <p>When adding a title in MDP we start off by adding an H1-H6 tags</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <h1>Big title</h1>
+      <h2>Slightly smaller title</h2>
+      <h3>Even smaller title</h3>
+      <h4>Small title</h4>
+      <h5>Slightly smaller title</h5>
+      <h6>Tiny title</h6>
+    </code>
+    <p>
+      Then we can add an <code mdp-display="inline">mdp-position</code> tag,
+      which we use to align the text. The
+      <code mdp-display="inline">mdp-position</code> tag works the exact same as
+      with buttons. (You can learn how the
+      <code mdp-display="inline">mdp-position</code> works
+      <a
+        onclick="document.getElementById('position-tag').scrollIntoView({behavior: 'smooth'});"
+        >here</a
+      >
+      . )
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <h1 mdp-position="left">Big title</h1>
+      <h2 mdp-position="middle">Slightly smaller title</h2>
+      <h3 mdp-position="right">Even smaller title</h3>
+      <h4 mdp-position="left">Small title</h4>
+      <h5 mdp-position="middle">Slightly smaller title</h5>
+      <h6 mdp-position="right">Tiny title</h6>
+    </code>
+    <p>Using the code above we get:</p>
+    <h1 mdp-position="left">Big title</h1>
+    <h2 mdp-position="middle">Slightly smaller title</h2>
+    <h3 mdp-position="right">Even smaller title</h3>
+    <h4 mdp-position="left">Small title</h4>
+    <h5 mdp-position="middle">Slightly smaller title</h5>
+    <h6 mdp-position="right">Tiny title</h6>
+    <h2 style="margin-top: 2em">Paragraphs</h2>
+    <p>
+      Paragraphs in MDP work like titles, just add a &ltp&gt tag and optionally
+      add the
+      <code mdp-display="inline">mdp-position</code> property.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <p mdp-position="middle">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
+        numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
+        molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
+      </p>
+    </code>
+    <p>Using this code we get:</p>
+    <p mdp-position="middle">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
+      numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
+      molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
+    </p>
+    <h2>Links</h2>
+    <p>
+      When creating links you start with the
+      <code mdp-display="inline"><a></a></code> tag, then you add the
+      <code mdp-display="inline">href</code>, it'll look like this:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <a href="https://example.com">Lorem ipsum</a>
+    </code>
+    <p>and that is it!</p>
+    <p>This code will look like this:</p>
+    <a href="https://example.com">Lorem ipsum</a>
+    <p>
+      If you want to add more customization you can change the
+      <code mdp-display="inline">mdp-position=""</code> property but in the case
+      of links we must first set the
+      <code mdp-display="inline">mdp-display=""</code> property to
+      <code mdp-display="inline">block</code>
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <a href="https://example.com" mdp-display="block" mdp-position="right"
+        >Lorem ipsum</a
+      >
+    </code>
+    <p>This code will look like this:</p>
+    <a href="https://example.com" mdp-display="block" mdp-position="right"
+      >Lorem ipsum</a
+    >
+    <h2>Codeblock</h2>
+    <p>
+      Codeblock can be used to display code, with support of syntax highlighting
+      for a wide variety of programming languages.
+    </p>
+    <p>
+      To add a codeblock simply add a &ltcode&gt tag. Make sure you also add the
+      <code mdp-display="inline">mdp-language=""</code> attribute with the
+      language the code you want to display is written in for syntax
+      highlighting.
+    </p>
+    <p>So for example this code:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <code mdp-display="block" mdp-language="HTML">
+        <div>
+          <span>Hello, World!</span>
+        </div>
+      </code>
+    </code>
+    <p>Would look like this:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <div>
+        <span>Hello, World!</span>
+      </div>
+    </code>
+    <h2>Images</h2>
+    <p>To add an image you simply add the image as you would in native HTML</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <img src="sample.jpg" />
+    </code>
+    If you'd like to change the dimensions of the image you can add the
+    <code mdp-display="inline">mdp-width=""</code> and
+    <code mdp-display="inline">mdp-height=""</code> property, if you use just
+    one of theese properties the other adjusts automaticaly. If you add both of
+    them the image will stretch to fit the area.
+    <code mdp-display="block" mdp-language="HTML">
+      <div>
+        <img src="sample.jpg" />
+        <img src="sample.jpg" mdp-width="100px" />
+        <img src="sample.jpg" mdp-height="100px" />
+        <img src="sample.jpg" mdp-width="100px" mdp-height="200px" />
+      </div>
+    </code>
   </body>
 </html>
