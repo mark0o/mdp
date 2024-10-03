@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer="" src="https://marko.iric.online/mdp/mdp-src.js"></script>
-    <title>Test</title>
+    <title>Mdp documentation</title>
   </head>
   <body style="padding-bottom: 0.5em">
     <div
@@ -39,7 +39,45 @@
     <code mdp-display="block" mdp-language="HTML">
       <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
     </code>
-    <h2>Inputs</h2>
+    <h3>Table of contents</h3>
+    <ul>
+      <li
+        onclick="document.getElementById('Inputs').scrollIntoView({behavior: 'smooth'});"
+      >
+        Inputs
+      </li>
+      <li
+        onclick="document.getElementById('Buttons').scrollIntoView({behavior: 'smooth'});"
+      >
+        Buttons
+      </li>
+      <li
+        onclick="document.getElementById('Titles').scrollIntoView({behavior: 'smooth'});"
+      >
+        Titles
+      </li>
+      <li
+        onclick="document.getElementById('Paragraphs').scrollIntoView({behavior: 'smooth'});"
+      >
+        Paragraphs
+      </li>
+      <li
+        onclick="document.getElementById('Links').scrollIntoView({behavior: 'smooth'});"
+      >
+        Links
+      </li>
+      <li
+        onclick="document.getElementById('Codeblocks').scrollIntoView({behavior: 'smooth'});"
+      >
+        Codeblocks
+      </li>
+      <li
+        onclick="document.getElementById('Images').scrollIntoView({behavior: 'smooth'});"
+      >
+        Images
+      </li>
+    </ul>
+    <h2 id="Inputs">Inputs</h2>
     Four input types are supported for now, but for this part we'll focus on
     just three. (more scheduled for the future) Those are:
     <li>Text</li>
@@ -134,7 +172,7 @@
     >
       Check value
     </button>
-    <h2>Buttons</h2>
+    <h2 id="Buttons">Buttons</h2>
     <p>
       Buttons are quite possibly the simplest thing in MDP; you just add a
       button as you would in HTML and thats it.
@@ -162,7 +200,7 @@
     <button onclick="alert('Hello, World!')" mdp-position="middle">
       Button
     </button>
-    <h2>Titles</h2>
+    <h2 id="Titles">Titles</h2>
     <p>When adding a title in MDP we start off by adding an H1-H6 tags</p>
     <code mdp-display="block" mdp-language="HTML">
       <h1>Big title</h1>
@@ -199,7 +237,7 @@
     <h4 mdp-position="left">Small title</h4>
     <h5 mdp-position="middle">Slightly smaller title</h5>
     <h6 mdp-position="right">Tiny title</h6>
-    <h2 style="margin-top: 2em">Paragraphs</h2>
+    <h2 id="Paragraphs" style="margin-top: 2em">Paragraphs</h2>
     <p>
       Paragraphs in MDP work like titles, just add a &ltp&gt tag and optionally
       add the
@@ -218,7 +256,7 @@
       numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
       molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
     </p>
-    <h2>Links</h2>
+    <h2 id="Links">Links</h2>
     <p>
       When creating links you start with the
       <code mdp-display="inline"><a></a></code> tag, then you add the
@@ -246,7 +284,7 @@
     <a href="https://example.com" mdp-display="block" mdp-position="right"
       >Lorem ipsum</a
     >
-    <h2>Codeblock</h2>
+    <h2 id="Codeblocks">Codeblock</h2>
     <p>
       Codeblock can be used to display code, with support of syntax highlighting
       for a wide variety of programming languages.
@@ -271,7 +309,7 @@
         <span>Hello, World!</span>
       </div>
     </code>
-    <h2>Images</h2>
+    <h2 id="Images">Images</h2>
     <p>To add an image you simply add the image as you would in native HTML</p>
     <code mdp-display="block" mdp-language="HTML">
       <img src="sample.jpg" />
