@@ -7,4 +7,4 @@ To add MDP to your project, simply insert the following code snippet into the he
 <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
 ```
 
-You can read the documentation [here](https://github.com/baztube/mdp/blob/main/documentation.md)
+You can read the documentation [here](https://mdp.marko.iric.online/)
