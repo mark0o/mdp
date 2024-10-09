@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer="" src="https://marko.iric.online/mdp/mdp-src.js"></script>
+    <script defer="" src="../Markos Design pack/main.js"></script>
     <title>Mdp documentation</title>
   </head>
-  <body style="padding-bottom: 0.5em">
+  <body mdp-limit-computer-width style="padding-bottom: 0.5em">
     <div
       style="
         display: flex;
@@ -30,17 +30,21 @@
         </button>
       </span>
     </div>
-    <hr />
     <h2 style="padding-top: 0.5em" id="intro">Introduction</h2>
     <p>
-      To add MDP to your html project simply add the following code to the head
-      of your html file
+      To add MDP to your HTML project, simply add the following code to the head
+      of your HTML file:
     </p>
     <code mdp-display="block" mdp-language="HTML">
       <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
     </code>
     <h3>Table of contents</h3>
     <ul>
+      <li
+        onclick="document.getElementById('Attributes').scrollIntoView({behavior: 'smooth'});"
+      >
+        Attributes
+      </li>
       <li
         onclick="document.getElementById('Inputs').scrollIntoView({behavior: 'smooth'});"
       >
@@ -76,7 +80,123 @@
       >
         Images
       </li>
+      <li
+        onclick="document.getElementById('Spacing').scrollIntoView({behavior: 'smooth'});"
+      >
+        Spacing
+      </li>
     </ul>
+
+    <h2 id="Attributes">Attributes</h2>
+    <p>Below is a table showing which attributes work with which elements:</p>
+    <table>
+      <tr>
+        <th></th>
+        <th>Input</th>
+        <th>Dropwdown</th>
+        <th>Button</th>
+        <th>Title</th>
+        <th>Paragraph</th>
+        <th>Links</th>
+        <th>Codeblock</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>mdp-label</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-position</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e9911c">
+          <span class="tooltip">
+            ✔
+            <span class="tooltiptext"
+              >Must first set the mdp-display attribute to 'block'</span
+            >
+          </span>
+        </td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-display</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-language</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-width</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-height</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-margin</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-padding</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+    </table>
     <h2 id="Inputs">Inputs</h2>
     Four input types are supported for now, but for this part we'll focus on
     just three. (more scheduled for the future) Those are:
@@ -88,9 +208,9 @@
       <input />
     </code>
     <p>
-      Then add the type; as I said, there are only 4 input types supported but
-      in this section well focus on the first three (for more info on the fourth
-      one; dropdowns scroll to Dropdowns), which are:
+      Then add the type; as I said, there are only 4 input types supported, but
+      in this section, well focus on the first three (for more info on the
+      fourth one; dropdowns, scroll to Dropdowns), which are:
       <code mdp-display="inline"> type="text" </code>
       ,
       <code mdp-display="inline"> type="number"</code>
@@ -108,23 +228,23 @@
     <input type="text" mdp-label="Write here!" />
     <h3>Dropdowns</h3>
     <p>
-      Dropdowns are the fourth input type but they are special because you must
-      add them in a different way than the other input types
+      Dropdowns are the fourth input type, but they are special because you must
+      add them in a different way than the other input types.
     </p>
     <p>
-      To add a dropdown first add an
+      To add a dropdown, first add an
       <code mdp-display="inline">
         <mdp-dropdown></mdp-dropdown>
       </code>
-      element, then add the id attribute
+      element, then add the id attribute 
       <code mdp-display="inline">
         <mdp-dropdown id="test"></mdp-dropdown>
       </code>
-      . After that you can also add the
+      . After that, you can also add the
       <code mdp-display="inline"> mdp-width </code>
-      attribute to change the width of the dropdown (by default the dropdown is
-      set to 100%). In the end we should get something that looks like either
-      one of theese two examples:
+      attribute to change the width of the dropdown (by default, the dropdown is
+      set to 100%). In the end, we should get something that looks like either
+      one of these
     </p>
     <code mdp-display="block" mdp-language="HTML">
       <mdp-dropdown id="test"></mdp-dropdown>
@@ -327,5 +447,30 @@
         <img src="sample.jpg" mdp-width="100px" mdp-height="200px" />
       </div>
     </code>
+    <h2 id="Spacing">Spacing</h2>
+    <p>
+      You can use the <code mdp-display="inline">mdp-margin=""</code> and the
+      <code mdp-display="inline">mdp-padding=""</code> to set custom margins and
+      paddings for elements. It is no different than vanila CSS margins and
+      paddings. Here are a few examples of usage of theese properties:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <div mdp-margin="1em">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-margin="10px 1em 0.8vmin 4%">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-padding="1em">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-padding="10px 1em 0.8vmin 4%">
+        <p>Hello, World!</p>
+      </div>
+    </code>
+    <p mdp-position="middle" style="color: #a0a0a0">
+      Made by
+      <a style="color: #a0a0a0" href="https://marko.iric.online">Marko Irić</a>
+    </p>
   </body>
 </html>

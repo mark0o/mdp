@@ -1,4 +1,11 @@
 const css = `
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 
@@ -23,6 +30,7 @@ code {
 https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+abap+abnf+actionscript+ada+agda+al+antlr4+apacheconf+apex+apl+applescript+aql+arduino+arff+armasm+arturo+asciidoc+aspnet+asm6502+asmatmel+autohotkey+autoit+avisynth+avro-idl+awk+bash+basic+batch+bbcode+bbj+bicep+birb+bison+bnf+bqn+brainfuck+brightscript+bro+bsl+c+csharp+cpp+cfscript+chaiscript+cil+cilkc+cilkcpp+clojure+cmake+cobol+coffeescript+concurnas+csp+cooklang+coq+crystal+css-extras+csv+cue+cypher+d+dart+dataweave+dax+dhall+diff+django+dns-zone-file+docker+dot+ebnf+editorconfig+eiffel+ejs+elixir+elm+etlua+erb+erlang+excel-formula+fsharp+factor+false+firestore-security-rules+flow+fortran+ftl+gml+gap+gcode+gdscript+gedcom+gettext+gherkin+git+glsl+gn+linker-script+go+go-module+gradle+graphql+groovy+haml+handlebars+haskell+haxe+hcl+hlsl+hoon+http+hpkp+hsts+ichigojam+icon+icu-message-format+idris+ignore+inform7+ini+io+j+java+javadoc+javadoclike+javastacktrace+jexl+jolie+jq+jsdoc+js-extras+json+json5+jsonp+jsstacktrace+js-templates+julia+keepalived+keyman+kotlin+kumir+kusto+latex+latte+less+lilypond+liquid+lisp+livescript+llvm+log+lolcode+lua+magma+makefile+markdown+markup-templating+mata+matlab+maxscript+mel+mermaid+metafont+mizar+mongodb+monkey+moonscript+n1ql+n4js+nand2tetris-hdl+naniscript+nasm+neon+nevod+nginx+nim+nix+nsis+objectivec+ocaml+odin+opencl+openqasm+oz+parigp+parser+pascal+pascaligo+psl+pcaxis+peoplecode+perl+php+phpdoc+php-extras+plant-uml+plsql+powerquery+powershell+processing+prolog+promql+properties+protobuf+pug+puppet+pure+purebasic+purescript+python+qsharp+q+qml+qore+r+racket+cshtml+jsx+tsx+reason+regex+rego+renpy+rescript+rest+rip+roboconf+robotframework+ruby+rust+sas+sass+scss+scala+scheme+shell-session+smali+smalltalk+smarty+sml+solidity+solution-file+soy+sparql+splunk-spl+sqf+sql+squirrel+stan+stata+iecst+stylus+supercollider+swift+systemd+t4-templating+t4-cs+t4-vb+tap+tcl+tt2+textile+toml+tremor+turtle+twig+typescript+typoscript+unrealscript+uorazor+uri+v+vala+vbnet+velocity+verilog+vhdl+vim+visual-basic+warpscript+wasm+web-idl+wgsl+wiki+wolfram+wren+xeora+xml-doc+xojo+xquery+yaml+yang+zig */
 code[class*="language-"],
 pre[class*="language-"] {
+  -webkit-font-variant-ligatures: none;
   font-variant-ligatures: none;
   color: #fff;
   background: 0 0;
@@ -38,7 +46,6 @@ pre[class*="language-"] {
   -o-tab-size: 4;
   tab-size: 4;
   -webkit-hyphens: none;
-  -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
   white-space: pre-wrap;
@@ -136,6 +143,33 @@ body {
   --dot-color: #242424;
   --dot-size: 2px;
   --dot-space: 22px;
+  background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(var(--dot-bg)),
+        color-stop(1%, transparent)
+      )
+      center / var(--dot-space) var(--dot-space),
+    -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(var(--dot-bg)),
+        color-stop(1%, transparent)
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: linear-gradient(
         90deg,
         var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
@@ -148,6 +182,12 @@ body {
       )
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+}
+
+body[mdp-limit-computer-width] {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: 2em;
 }
 
 input,
@@ -175,8 +215,12 @@ option {
   padding: 1rem;
   font-size: 1rem;
   color: #f5f5f5;
+  -webkit-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
   width: calc(100% - 2rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -187,7 +231,11 @@ option {
   top: 4px;
   color: #e8e8e8;
   pointer-events: none;
+  -webkit-transform: translateY(0.75rem);
+  -ms-transform: translateY(0.75rem);
   transform: translateY(0.75rem);
+  -webkit-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -200,6 +248,8 @@ input:valid,
 
 .input:focus ~ label,
 input:valid ~ label {
+  -webkit-transform: translateY(-50%) scale(0.8);
+  -ms-transform: translateY(-50%) scale(0.8);
   transform: translateY(-50%) scale(0.8);
   background-color: #151515;
   padding: 0 0.2em;
@@ -227,6 +277,8 @@ button {
   padding: 1rem;
   font-size: 1rem;
   color: #f5f5f5;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
   display: block;
 }
@@ -252,6 +304,7 @@ button[mdp-position="none"] {
 }
 
 button:active {
+  -webkit-filter: brightness(80%);
   filter: brightness(80%);
 }
 
@@ -288,6 +341,10 @@ h6[mdp-position="none"] {
   text-align: none;
 }
 
+::-moz-selection {
+  background-color: var(--main-colour);
+}
+
 ::selection {
   background-color: var(--main-colour);
 }
@@ -312,11 +369,21 @@ p[mdp-position="none"] {
 a {
   font-weight: 700;
   color: var(--main-colour);
+  -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
   text-decoration-thickness: 1.5px;
+  -webkit-text-decoration-style: wavy;
   text-decoration-style: wavy;
+  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
   display: inline;
+  cursor: pointer;
+  margin-block: 0.5em;
+}
+
+a::-moz-selection {
+  background-color: var(--main-colour);
+  color: #fff;
 }
 
 a::selection {
@@ -327,12 +394,16 @@ a::selection {
 a[mdp-display="block"][mdp-position="left"] {
   display: block;
   text-align: left;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin-right: auto;
 }
 a[mdp-display="block"][mdp-position="middle"] {
   display: block;
   text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin-right: auto;
   margin-left: auto;
@@ -340,6 +411,8 @@ a[mdp-display="block"][mdp-position="middle"] {
 a[mdp-display="block"][mdp-position="right"] {
   display: block;
   text-align: right;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
 }
@@ -355,18 +428,30 @@ a[mdp-display="inline"] {
 code {
   display: block;
   font-family: monospace;
+  unicode-bidi: -webkit-isolate;
+  unicode-bidi: -moz-isolate;
   unicode-bidi: isolate;
   white-space: pre-wrap;
   margin-top: 1em;
   padding: 1em;
   line-height: 2em;
+  word-break: break-all;
 }
 
 pre {
   background-color: #101010;
 }
 
+code::-moz-selection {
+  background-color: var(--main-colour);
+  color: #fff;
+}
+
 code::selection {
+  background-color: var(--main-colour);
+  color: #fff;
+}
+code span::-moz-selection {
   background-color: var(--main-colour);
   color: #fff;
 }
@@ -395,6 +480,9 @@ img {
 .mdp-dropdown {
   position: relative;
   font-weight: 500;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   margin-block: 4px;
   max-width: 100%;
@@ -465,6 +553,81 @@ img {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+hr {
+  border: 1px solid #323232;
+}
+
+.tooltip {
+  cursor: help;
+  position: relative;
+  display: inline-block;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  -webkit-text-decoration-style: wavy;
+  text-decoration-color: #ffffff42;
+  text-decoration-style: wavy;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  width: 8em;
+  background-color: #101010d0;
+  color: #fff;
+  text-align: center;
+  border-radius: 1em;
+  padding: 0.5em;
+  transition: 150ms;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+  transition: 150ms;
+}
+.tooltip:active .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+  transition: 150ms;
+}
+table th {
+  padding-top: 16px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: fit-content;
+  margin-inline: auto;
+  outline: 1px solid #ddd2;
+  border-radius: 1em;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+table td,
+table th {
+  padding: 12px;
+  text-align: center;
+  outline: 1px solid #ddd2;
+}
+
+table tr:first-child,
+table tr:first-child td,
+table tr:first-child th {
+  background-color: var(--main-colour);
+  outline: none;
+}
+
 `
 
 const supportedTypes = ['text', 'password', 'number'];
@@ -473,38 +636,41 @@ supportedTypes.forEach(inputType => {
   const allInputs = document.querySelectorAll(`input[type="${inputType}"]`);
 
   allInputs.forEach(textInput => {
-    const mdpLabel = textInput.getAttribute('mdp-label');
-    const attributes = [];
+    // Check if the textInput is not inside a code element
+    if (!textInput.closest('code')) {
+      const mdpLabel = textInput.getAttribute('mdp-label');
+      const attributes = [];
 
-    // Get all other attributes except type and mdp-label
-    for (const attribute of textInput.attributes) {
-      if (attribute.name !== 'type' && attribute.name !== 'mdp-label') {
-        attributes.push(attribute.name + '="' + attribute.value + '"');
+      // Get all other attributes except type and mdp-label
+      for (const attribute of textInput.attributes) {
+        if (attribute.name !== 'type' && attribute.name !== 'mdp-label') {
+          attributes.push(attribute.name + '="' + attribute.value + '"');
+        }
       }
+
+      const joinedAttributes = attributes.join(' ');
+
+      const newInputGroup = document.createElement('div');
+      newInputGroup.classList.add('input-group');
+
+      const newInput = document.createElement('input');
+      newInput.type = textInput.type; // Preserve original input type
+      newInput.classList.add('input');
+      newInput.required = true; // Assuming all inputs are required
+      newInput.setAttribute('aria-label', mdpLabel); // Add aria-label for accessibility
+      if (joinedAttributes.length > 0) {
+        newInput.setAttribute('attributes', joinedAttributes); // Not recommended for modern browsers
+      }
+
+      const newLabel = document.createElement('label');
+      newLabel.classList.add('user-label');
+      newLabel.textContent = mdpLabel;
+
+      newInputGroup.appendChild(newInput);
+      newInputGroup.appendChild(newLabel);
+
+      textInput.parentNode.replaceChild(newInputGroup, textInput);
     }
-
-    const joinedAttributes = attributes.join(' ');
-
-    const newInputGroup = document.createElement('div');
-    newInputGroup.classList.add('input-group');
-
-    const newInput = document.createElement('input');
-    newInput.type = textInput.type; // Preserve original input type
-    newInput.classList.add('input');
-    newInput.required = true; // Assuming all inputs are required
-    newInput.setAttribute('aria-label', mdpLabel); // Add aria-label for accessibility
-    if (joinedAttributes.length > 0) {
-      newInput.setAttribute('attributes', joinedAttributes); // Not recommended for modern browsers
-    }
-
-    const newLabel = document.createElement('label');
-    newLabel.classList.add('user-label');
-    newLabel.textContent = mdpLabel;
-
-    newInputGroup.appendChild(newInput);
-    newInputGroup.appendChild(newLabel);
-
-    textInput.parentNode.replaceChild(newInputGroup, textInput);
   });
 });
 
@@ -567,38 +733,35 @@ function convertMdpDropdown() {
   const mdpDropdowns = document.querySelectorAll('mdp-dropdown');
 
   mdpDropdowns.forEach(mdpDropdown => {
-    const div = document.createElement('div');
-    div.classList.add('mdp-dropdown');
+    if (!mdpDropdown.closest('code')) {
+      const div = document.createElement('div');
+      div.classList.add('mdp-dropdown');
 
-    const mdpWidth = mdpDropdown.getAttribute('mdp-width');
-    if (mdpWidth) {
-      div.style.width = mdpWidth;
-    }
-
-    const select = document.createElement('select');
-    select.innerHTML = mdpDropdown.innerHTML;
-
-    // Transfer other attributes
-    Array.from(mdpDropdown.attributes).forEach(attr => {
-      if (attr.name !== 'mdp-width') {
-        select.setAttribute(attr.name, attr.value);
+      const mdpWidth = mdpDropdown.getAttribute('mdp-width');
+      if (mdpWidth) {
+        div.style.width = mdpWidth;
       }
-    });
 
-    div.appendChild(select);
+      const select = document.createElement('select');
+      select.innerHTML = mdpDropdown.innerHTML;
 
-    mdpDropdown.parentNode.replaceChild(div, mdpDropdown);
+      // Transfer other attributes
+      Array.from(mdpDropdown.attributes).forEach(attr => {
+        if (attr.name !== 'mdp-width') {
+          select.setAttribute(attr.name, attr.value);
+        }
+      });
+
+      div.appendChild(select);
+
+      mdpDropdown.parentNode.replaceChild(div, mdpDropdown);
+    }
   });
 }
 
 convertMdpDropdown();
 setImgDimensions();
 cycleCodeBlocks();
-
-const script = document.createElement('script');
-script.src = 'https://marko.iric.online/mdp/prism.js';
-document.body.appendChild(script);
-document.querySelector("head").innerHTML = document.querySelector("head").innerHTML = '<style>' + css + '</style>'
 
 
 var x, i, j, l, ll, selElmnt, a, b, c;
@@ -681,4 +844,32 @@ function closeAllSelect(elmnt) {
 /* If the user clicks anywhere outside the select box,
 then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
+
+function setMarginFromMdpMargin() {
+  const elements = document.querySelectorAll('[mdp-margin]');
+  console.log(elements)
+
+  elements.forEach(element => {
+    const mdpMarginValue = element.getAttribute('mdp-margin');
+    element.style.margin = mdpMarginValue;
+  });
+}
+
+function setPaddingFromMdpPadding() {
+  const elements = document.querySelectorAll('[mdp-padding]');
+
+  elements.forEach(element => {
+    const mdpPaddingValue = element.getAttribute('mdp-padding');
+    element.style.padding = mdpPaddingValue;
+  });
+}
+
+setMarginFromMdpMargin()
+setPaddingFromMdpPadding()
+
+const script = document.createElement('script');
+script.src = 'https://marko.iric.online/mdp/prism.js';
+document.body.appendChild(script);
+const style = '<style>' + css + '</style>'
+document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + style
 
