@@ -471,9 +471,6 @@ img {
   border-radius: 16px;
   max-width: 100%;
   margin-top: 16px;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
-  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
-  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
 }
 
 /* The container must be positioned relative: */
