@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer="" src="../Markos Design pack/main.js"></script>
+    <script defer="" src="https://marko.iric.online/mdp/mdp-src.js"></script>
     <title>Mdp documentation</title>
   </head>
   <body mdp-limit-computer-width style="padding-bottom: 0.5em">
@@ -14,8 +14,15 @@
         align-items: center;
         height: 100svh;
       "
+      mdp-height="100svh"
     >
       <span>
+        <img
+          src="https://github.com/mark0o/mdp/blob/main/logo-small.png?raw=true"
+          alt="MDP Logo"
+          mdp-width="40vmin"
+          style="margin-inline: auto"
+        />
         <h1 style="font-size: 10vmin" mdp-position="middle">
           Marko's Design Pack
         </h1>
@@ -40,11 +47,6 @@
     </code>
     <h3>Table of contents</h3>
     <ul>
-      <li
-        onclick="document.getElementById('Attributes').scrollIntoView({behavior: 'smooth'});"
-      >
-        Attributes
-      </li>
       <li
         onclick="document.getElementById('Inputs').scrollIntoView({behavior: 'smooth'});"
       >
@@ -85,11 +87,24 @@
       >
         Spacing
       </li>
+      <li
+        onclick="document.getElementById('specialAttributes').scrollIntoView({behavior: 'smooth'});"
+      >
+        Special attributes
+      </li>
+      <li
+        mdp-hide-on-small-screens
+        onclick="document.getElementById('Attributes').scrollIntoView({behavior: 'smooth'});"
+      >
+        Attributes
+      </li>
     </ul>
 
-    <h2 id="Attributes">Attributes</h2>
-    <p>Below is a table showing which attributes work with which elements:</p>
-    <table>
+    <h2 id="Attributes" mdp-hide-on-small-screens>Attributes</h2>
+    <p mdp-hide-on-small-screens>
+      Below is a table showing which attributes work with which elements:
+    </p>
+    <table mdp-hide-on-small-screens>
       <tr>
         <th></th>
         <th>Input</th>
@@ -154,7 +169,7 @@
       </tr>
       <tr>
         <td>mdp-width</td>
-        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
         <td style="color: #74e91c">✔</td>
         <td style="color: #e92a1c">✖</td>
         <td style="color: #e92a1c">✖</td>
@@ -220,12 +235,19 @@
     <code mdp-display="block" mdp-language="HTML">
       <input type="text" />
     </code>
-    <p>Lastly, we must add the label; we do that with 'mdp-label=""`</p>
+    <p>
+      Lastly, we can add the label; we do that with
+      <code mdp-display="inline">mdp-label=""</code>. By default the width is
+      set to 100%, we can change this by adding the
+      <code mdp-display="inline">mdp-width=""</code> attribute.
+    </p>
     <code mdp-display="block" mdp-language="HTML">
       <input type="text" mdp-label="Write here!" />
+      <input type="text" mdp-label="Write here!" mdp-width="400px" />
     </code>
     <p>We will get:</p>
     <input type="text" mdp-label="Write here!" />
+    <input type="text" mdp-label="Write here!" mdp-width="400px" />
     <h3>Dropdowns</h3>
     <p>
       Dropdowns are the fourth input type, but they are special because you must
@@ -468,6 +490,25 @@
         <p>Hello, World!</p>
       </div>
     </code>
+    <h2 id="specialAttributes">Special attributes</h2>
+    <p>MDP offers some attributes that aren't commonly used, here they are:</p>
+    <b>mdp-limit-computer-width</b>
+    <p>
+      <code mdp-display="inline">mdp-limit-computer-width</code> limits the max
+      width of the body to 1000px so text can still be easily read on big
+      screens where the distance from the end of the line to the start of the
+      other line are too large to easily track.
+    </p>
+    <b>mdp-hide-on-small-screens</b>
+    <p>
+      <code mdp-display="inline">mdp-hide-on-small-screens</code> hides the
+      element on screens smaller than 800 pixels.
+    </p>
+    <b>mdp-hide-on-large-screens</b>
+    <p>
+      <code mdp-display="inline">mdp-hide-on-small-screens</code> hides the
+      element on screens larger than 800 pixels.
+    </p>
     <p mdp-position="middle" style="color: #a0a0a0">
       Made by
       <a style="color: #a0a0a0" href="https://marko.iric.online">Marko Irić</a>
