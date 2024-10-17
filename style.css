@@ -62,6 +62,7 @@ pre[class*="language-"] {
 :not(pre) > code[mdp-display="block"][class*="language-"] {
   padding: 1em;
   border-radius: 0.3em;
+  overflow: auto;
   white-space: pre-wrap;
 }
 :not(pre) > code[mdp-display="inline"][class*="language-"] {
@@ -135,13 +136,35 @@ pre[class*="language-"] {
 
 /* #############  END OF PRSIM CSS  ############## */
 
-body {
+html {
   color: #fff;
   font-family: "Inter", sans-serif;
   --dot-bg: #151515;
   --dot-color: #242424;
   --dot-size: 2px;
   --dot-space: 22px;
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: -webkit-gradient(
         linear,
         left top,
@@ -202,8 +225,8 @@ option {
 
 .input-group {
   position: relative;
-  max-width: 400px;
   width: 100%;
+  max-width: 100%;
 }
 
 .input {
@@ -470,9 +493,6 @@ img {
   border-radius: 16px;
   max-width: 100%;
   margin-top: 16px;
-  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
-  -webkit-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
-  -moz-box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.58) inset;
 }
 
 /* The container must be positioned relative: */
@@ -564,6 +584,7 @@ hr {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   -webkit-text-decoration-style: wavy;
+  -webkit-text-decoration-color: #ffffff42;
   text-decoration-color: #ffffff42;
   text-decoration-style: wavy;
   -webkit-text-decoration-skip-ink: none;
@@ -579,6 +600,8 @@ hr {
   text-align: center;
   border-radius: 1em;
   padding: 0.5em;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 
   /* Position the tooltip */
@@ -589,11 +612,15 @@ hr {
 .tooltip:hover .tooltiptext {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 }
 .tooltip:active .tooltiptext {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 }
 table th {
@@ -605,6 +632,8 @@ table th {
 table {
   border-collapse: collapse;
   width: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   margin-inline: auto;
   outline: 1px solid #ddd2;
@@ -625,4 +654,34 @@ table tr:first-child td,
 table tr:first-child th {
   background-color: var(--main-colour);
   outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  [mdp-hide-on-small-screens] {
+    all: unset;
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    visibility: collapse;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  [mdp-hide-on-large-screens] {
+    all: unset;
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    visibility: collapse;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }

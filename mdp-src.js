@@ -63,6 +63,7 @@ pre[class*="language-"] {
 :not(pre) > code[mdp-display="block"][class*="language-"] {
   padding: 1em;
   border-radius: 0.3em;
+  overflow: auto;
   white-space: pre-wrap;
 }
 :not(pre) > code[mdp-display="inline"][class*="language-"] {
@@ -136,13 +137,35 @@ pre[class*="language-"] {
 
 /* #############  END OF PRSIM CSS  ############## */
 
-body {
+html {
   color: #fff;
   font-family: "Inter", sans-serif;
   --dot-bg: #151515;
   --dot-color: #242424;
   --dot-size: 2px;
   --dot-space: 22px;
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: -webkit-gradient(
         linear,
         left top,
@@ -203,8 +226,8 @@ option {
 
 .input-group {
   position: relative;
-  max-width: 400px;
   width: 100%;
+  max-width: 100%;
 }
 
 .input {
@@ -562,6 +585,7 @@ hr {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   -webkit-text-decoration-style: wavy;
+  -webkit-text-decoration-color: #ffffff42;
   text-decoration-color: #ffffff42;
   text-decoration-style: wavy;
   -webkit-text-decoration-skip-ink: none;
@@ -577,6 +601,8 @@ hr {
   text-align: center;
   border-radius: 1em;
   padding: 0.5em;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 
   /* Position the tooltip */
@@ -587,11 +613,15 @@ hr {
 .tooltip:hover .tooltiptext {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 }
 .tooltip:active .tooltiptext {
   opacity: 1;
   visibility: visible;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 }
 table th {
@@ -603,6 +633,8 @@ table th {
 table {
   border-collapse: collapse;
   width: 100%;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   margin-inline: auto;
   outline: 1px solid #ddd2;
@@ -625,6 +657,36 @@ table tr:first-child th {
   outline: none;
 }
 
+@media screen and (max-width: 800px) {
+  [mdp-hide-on-small-screens] {
+    all: unset;
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    visibility: collapse;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  [mdp-hide-on-large-screens] {
+    all: unset;
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    height: 0px;
+    visibility: collapse;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
 `
 
 const supportedTypes = ['text', 'password', 'number'];
@@ -636,6 +698,7 @@ supportedTypes.forEach(inputType => {
     // Check if the textInput is not inside a code element
     if (!textInput.closest('code')) {
       const mdpLabel = textInput.getAttribute('mdp-label');
+      const mdpWidth = textInput.getAttribute('mdp-width');
       const attributes = [];
 
       // Get all other attributes except type and mdp-label
@@ -655,6 +718,8 @@ supportedTypes.forEach(inputType => {
       newInput.classList.add('input');
       newInput.required = true; // Assuming all inputs are required
       newInput.setAttribute('aria-label', mdpLabel); // Add aria-label for accessibility
+      newInput.style.maxWidth = `calc(${mdpWidth} - 34px)`
+      newInputGroup.width = `calc(${mdpWidth} - 34px)`
       if (joinedAttributes.length > 0) {
         newInput.setAttribute('attributes', joinedAttributes); // Not recommended for modern browsers
       }
@@ -724,6 +789,18 @@ function setImgDimensions() {
     img.removeAttribute('mdp-width')
     img.removeAttribute('mdp-height')
   });
+  const divs = document.querySelectorAll('div');
+
+  divs.forEach(div => {
+    const mdpWidth = div.getAttribute('mdp-width');
+    const mdpHeight = div.getAttribute('mdp-height');
+
+    div.style.width = mdpWidth;
+    div.style.height = mdpHeight;
+
+    div.removeAttribute('mdp-width')
+    div.removeAttribute('mdp-height')
+  });
 }
 
 function convertMdpDropdown() {
@@ -755,7 +832,15 @@ function convertMdpDropdown() {
     }
   });
 }
+function setBackgroundColorByAttribute() {
+  const elements = document.querySelectorAll('[mdp-bgColour]');
 
+  elements.forEach(element => {
+    const bgColor = element.getAttribute('mdp-bgColour');
+    element.style.backgroundColor = bgColor;
+  });
+}
+setBackgroundColorByAttribute()
 convertMdpDropdown();
 setImgDimensions();
 cycleCodeBlocks();
