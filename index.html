@@ -3,12 +3,191 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Markos design pack (MDP)</title>
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <script defer="" src="https://marko.iric.online/mdp/mdp-src.js"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/favicon.ico"
+    />
+    <title>MDP documentation</title>
   </head>
+  <body mdp-limit-computer-width style="padding-bottom: 0.5em">
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100svh;
+      "
+      mdp-height="100svh"
+    >
+      <span>
+        <img
+          src="https://github.com/mark0o/mdp/blob/main/logo-small.png?raw=true"
+          alt="MDP Logo"
+          mdp-width="40vmin"
+          style="margin-inline: auto"
+        />
+        <h1 style="font-size: 10vmin" mdp-position="middle">
+          Marko's Design Pack
+        </h1>
+        <h2 style="font-size: 3vmin" mdp-position="middle">
+          An easy to use, sleek, and modern front-end css framework
+        </h2>
+        <button
+          onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'});"
+          mdp-position="middle"
+        >
+          Read Documentation
+        </button>
+      </span>
+    </div>
+    <h2 style="padding-top: 0.5em" id="intro">Introduction</h2>
+    <p>
+      To add MDP to your HTML project, simply add the following code to the head
+      of your HTML file:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <script defer src="https://marko.iric.online/mdp/mdp-src.js"></script>
+    </code>
+    <h3>Table of contents</h3>
+    <ul>
+      <li
+        onclick="document.getElementById('Inputs').scrollIntoView({behavior: 'smooth'});"
+      >
+        Inputs
+      </li>
+      <li
+        onclick="document.getElementById('Buttons').scrollIntoView({behavior: 'smooth'});"
+      >
+        Buttons
+      </li>
+      <li
+        onclick="document.getElementById('Titles').scrollIntoView({behavior: 'smooth'});"
+      >
+        Titles
+      </li>
+      <li
+        onclick="document.getElementById('Paragraphs').scrollIntoView({behavior: 'smooth'});"
+      >
+        Paragraphs
+      </li>
+      <li
+        onclick="document.getElementById('Links').scrollIntoView({behavior: 'smooth'});"
+      >
+        Links
+      </li>
+      <li
+        onclick="document.getElementById('Codeblocks').scrollIntoView({behavior: 'smooth'});"
+      >
+        Codeblocks
+      </li>
+      <li
+        onclick="document.getElementById('Images').scrollIntoView({behavior: 'smooth'});"
+      >
+        Images
+      </li>
+      <li
+        onclick="document.getElementById('Spacing').scrollIntoView({behavior: 'smooth'});"
+      >
+        Spacing
+      </li>
+      <li
+        onclick="document.getElementById('specialAttributes').scrollIntoView({behavior: 'smooth'});"
+      >
+        Special attributes
+      </li>
+      <li
+        mdp-hide-on-small-screens
+        onclick="document.getElementById('Attributes').scrollIntoView({behavior: 'smooth'});"
+      >
+        Attributes
+      </li>
+    </ul>
 
-  <body>
+    <h2 id="Inputs">Inputs</h2>
+    Four input types are supported for now, but for this part we'll focus on
+    just three. (more scheduled for the future) Those are:
+    <li>Text</li>
+    <li>Numbers</li>
+    <li>Passwords</li>
+    <p>To create an input, you start as you would in regular HTML:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input />
+    </code>
+    <p>
+      Then add the type; as I said, there are only 4 input types supported, but
+      in this section, well focus on the first three (for more info on the
+      fourth one; dropdowns, scroll to Dropdowns), which are:
+      <code mdp-display="inline"> type="text" </code>
+      ,
+      <code mdp-display="inline"> type="number"</code>
+      , and
+      <code mdp-display="inline"> type="password" </code>
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input type="text" />
+    </code>
+    <p>
+      Lastly, we can add the label; we do that with
+      <code mdp-display="inline">mdp-label=""</code>. By default the width is
+      set to 100%, we can change this by adding the
+      <code mdp-display="inline">mdp-width=""</code> attribute.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <input type="text" mdp-label="Write here!" />
+      <input type="text" mdp-label="Write here!" mdp-width="50%" />
+    </code>
+    <p>We will get:</p>
+    <input type="text" mdp-label="Write here!" />
+    <input type="text" mdp-label="Write here!" mdp-width="50%" />
+    <h3>Dropdowns</h3>
+    <p>
+      Dropdowns are the fourth input type, but they are special because you must
+      add them in a different way than the other input types.
+    </p>
+    <p>
+      To add a dropdown, first add an
+      <code mdp-display="inline">
+        <mdp-dropdown></mdp-dropdown>
+      </code>
+      element, then add the id attribute 
+      <code mdp-display="inline">
+        <mdp-dropdown id="test"></mdp-dropdown>
+      </code>
+      . After that, you can also add the
+      <code mdp-display="inline"> mdp-width </code>
+      attribute to change the width of the dropdown (by default, the dropdown is
+      set to 100%). In the end, we should get something that looks like either
+      one of these
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <mdp-dropdown id="test"></mdp-dropdown>
+      <mdp-dropdown id="test" mdp-width="400px"></mdp-dropdown>
+    </code>
+    <p>
+      After that we can add the options. To do that just add an
+      <code mdp-display="inline"> <option></option> </code>
+      element inside the
+      <code mdp-display="inline"> <mdp-dropdown></mdp-dropdown> </code>
+      . Add the
+      <code mdp-display="inline"> value="" </code>
+      attribute to the
+      <code mdp-display="inline"> <option></option> </code>
+      . In the end we should get something that looks like this:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <mdp-dropdown id="test" mdp-width="400px">
+        <option value="">Select car:</option>
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Citroen">Citroen</option>
+        <option value="Ford">Skoda</option>
+        <option value="Honda">Honda</option>
+        <option value="Jaguar">Jaguar</option>
+      </mdp-dropdown>
+    </code>
+    <p>With the code above we get:</p>
     <mdp-dropdown id="test" mdp-width="400px">
       <option value="null">Select car:</option>
       <option value="Audi">Audi</option>
@@ -18,5 +197,408 @@
       <option value="Honda">Honda</option>
       <option value="Jaguar">Jaguar</option>
     </mdp-dropdown>
+    <p>
+      Pressing the button below will show the current value, the code is no
+      different than if we were using native HTML dropdowns.
+    </p>
+    <p id="button-results"></p>
+    <button
+      onclick="document.getElementById('button-results').innerText = 'Value of dropdown is: ' + document.getElementById('test').value"
+    >
+      Check value
+    </button>
+    <h2 id="Buttons">Buttons</h2>
+    <p>
+      Buttons are quite possibly the simplest thing in MDP; you just add a
+      button as you would in HTML and thats it.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <button>Button</button>
+    </code>
+    <p id="position-tag">
+      And then we can add the
+      <code mdp-display="inline">mdp-position</code> property; there are four
+      positions you can choose from: either
+      <code mdp-display="inline">mdp-position="left"</code>,
+      <code mdp-display="inline">mdp-position="middle"</code>,
+      <code mdp-display="inline">mdp-position="right"</code> or
+      <code mdp-display="inline">mdp-position="none"</code>. The first three are
+      self-explanatory, and the <code mdp-display="inline">none</code> property
+      allows you to set your own rules using custom CSS.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <button onclick="alert('Hello, World!')" mdp-position="middle">
+        Button
+      </button>
+    </code>
+    <p>Using the code above we get:</p>
+    <button onclick="alert('Hello, World!')" mdp-position="middle">
+      Button
+    </button>
+    <h2 id="Titles">Titles</h2>
+    <p>When adding a title in MDP we start off by adding an H1-H6 tags</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <h1>Big title</h1>
+      <h2>Slightly smaller title</h2>
+      <h3>Even smaller title</h3>
+      <h4>Small title</h4>
+      <h5>Slightly smaller title</h5>
+      <h6>Tiny title</h6>
+    </code>
+    <p>
+      Then we can add an <code mdp-display="inline">mdp-position</code> tag,
+      which we use to align the text. The
+      <code mdp-display="inline">mdp-position</code> tag works the exact same as
+      with buttons. (You can learn how the
+      <code mdp-display="inline">mdp-position</code> works
+      <a
+        onclick="document.getElementById('position-tag').scrollIntoView({behavior: 'smooth'});"
+        >here</a
+      >
+      . )
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <h1 mdp-position="left">Big title</h1>
+      <h2 mdp-position="middle">Slightly smaller title</h2>
+      <h3 mdp-position="right">Even smaller title</h3>
+      <h4 mdp-position="left">Small title</h4>
+      <h5 mdp-position="middle">Slightly smaller title</h5>
+      <h6 mdp-position="right">Tiny title</h6>
+    </code>
+    <p>Using the code above we get:</p>
+    <h1 mdp-position="left">Big title</h1>
+    <h2 mdp-position="middle">Slightly smaller title</h2>
+    <h3 mdp-position="right">Even smaller title</h3>
+    <h4 mdp-position="left">Small title</h4>
+    <h5 mdp-position="middle">Slightly smaller title</h5>
+    <h6 mdp-position="right">Tiny title</h6>
+    <h2 id="Paragraphs" style="margin-top: 2em">Paragraphs</h2>
+    <p>
+      Paragraphs in MDP work like titles, just add a &ltp&gt tag and optionally
+      add the
+      <code mdp-display="inline">mdp-position</code> property.
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <p mdp-position="middle">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
+        numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
+        molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
+      </p>
+    </code>
+    <p>Using this code we get:</p>
+    <p mdp-position="middle">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa ab quasi
+      numquam voluptates impedit. Saepe, quaerat? Aspernatur, laboriosam autem
+      molestias ipsam, qui eaque numquam sequi eius expedita ea a ipsa?
+    </p>
+    <h2 id="Links">Links</h2>
+    <p>
+      When creating links you start with the
+      <code mdp-display="inline"><a></a></code> tag, then you add the
+      <code mdp-display="inline">href</code>, it'll look like this:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <a href="https://example.com">Lorem ipsum</a>
+    </code>
+    <p>and that is it!</p>
+    <p>This code will look like this:</p>
+    <a href="https://example.com">Lorem ipsum</a>
+    <p>
+      If you want to add more customization you can change the
+      <code mdp-display="inline">mdp-position=""</code> property but in the case
+      of links we must first set the
+      <code mdp-display="inline">mdp-display=""</code> property to
+      <code mdp-display="inline">block</code>
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <a href="https://example.com" mdp-display="block" mdp-position="right"
+        >Lorem ipsum</a
+      >
+    </code>
+    <p>This code will look like this:</p>
+    <a href="https://example.com" mdp-display="block" mdp-position="right"
+      >Lorem ipsum</a
+    >
+    <h2 id="Codeblocks">Codeblock</h2>
+    <p>
+      Codeblock can be used to display code, with support of syntax highlighting
+      for a wide variety of programming languages.
+    </p>
+    <p>
+      To add a codeblock simply add a &ltcode&gt tag. Make sure you also add the
+      <code mdp-display="inline">mdp-language=""</code> attribute with the
+      language the code you want to display is written in for syntax
+      highlighting.
+    </p>
+    <p>So for example this code:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <code mdp-display="block" mdp-language="HTML">
+        <div>
+          <span>Hello, World!</span>
+        </div>
+      </code>
+    </code>
+    <p>Would look like this:</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <div>
+        <span>Hello, World!</span>
+      </div>
+    </code>
+    <h2 id="Images">Images</h2>
+    <p>To add an image you simply add the image as you would in native HTML</p>
+    <code mdp-display="block" mdp-language="HTML">
+      <img src="sample.jpg" />
+    </code>
+    If you'd like to change the dimensions of the image you can add the
+    <code mdp-display="inline">mdp-width=""</code> and
+    <code mdp-display="inline">mdp-height=""</code> property, if you use just
+    one of theese properties the other adjusts automaticaly. If you add both of
+    them the image will stretch to fit the area.
+    <code mdp-display="block" mdp-language="HTML">
+      <div>
+        <img src="sample.jpg" />
+        <img src="sample.jpg" mdp-width="100px" />
+        <img src="sample.jpg" mdp-height="100px" />
+        <img src="sample.jpg" mdp-width="100px" mdp-height="200px" />
+      </div>
+    </code>
+    <h2 id="Spacing">Spacing</h2>
+    <p>
+      You can use the <code mdp-display="inline">mdp-margin=""</code> and the
+      <code mdp-display="inline">mdp-padding=""</code> to set custom margins and
+      paddings for elements. It is no different than vanila CSS margins and
+      paddings. Here are a few examples of usage of theese properties:
+    </p>
+    <code mdp-display="block" mdp-language="HTML">
+      <div mdp-margin="1em">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-margin="10px 1em 0.8vmin 4%">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-padding="1em">
+        <p>Hello, World!</p>
+      </div>
+      <div mdp-padding="10px 1em 0.8vmin 4%">
+        <p>Hello, World!</p>
+      </div>
+    </code>
+    <h2 id="specialAttributes">Special attributes</h2>
+    <p>MDP offers some attributes that aren't commonly used, here they are:</p>
+    <b>mdp-limit-computer-width</b>
+    <p>
+      <code mdp-display="inline">mdp-limit-computer-width</code> limits the max
+      width of the body to 1000px so text can still be easily read on big
+      screens where the distance from the end of the line to the start of the
+      other line are too large to easily track. This will only works if the
+      attribute is set to the body element
+    </p>
+    <b>mdp-hide-on-small-screens</b>
+    <p>
+      <code mdp-display="inline">mdp-hide-on-small-screens</code> hides the
+      element on screens smaller than 800 pixels.
+    </p>
+    <b>mdp-hide-on-large-screens</b>
+    <p>
+      <code mdp-display="inline">mdp-hide-on-small-screens</code> hides the
+      element on screens larger than 800 pixels.
+    </p>
+    <b>mdp-show-loading-screen</b>
+    <p>
+      <code mdp-display="inline">mdp-show-loading-screen</code> can be added to
+      the body element, it shows a loading screen while the content of the page
+      is being loaded.
+    </p>
+
+    <h2 id="Attributes" mdp-hide-on-small-screens>Attributes</h2>
+    <p mdp-hide-on-small-screens>
+      Below is a table showing which attributes work with which elements:
+    </p>
+    <table mdp-hide-on-small-screens>
+      <tr>
+        <th></th>
+        <th>Input</th>
+        <th>Dropwdown</th>
+        <th>Button</th>
+        <th>Title</th>
+        <th>Paragraph</th>
+        <th>Links</th>
+        <th>Codeblock</th>
+        <th>Image</th>
+      </tr>
+      <tr>
+        <td>mdp-label</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-position</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e9911c">
+          <span class="tooltip">
+            ✔
+            <span class="tooltiptext"
+              >Must first set the mdp-display attribute to 'block'</span
+            >
+          </span>
+        </td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-display</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-language</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+      </tr>
+      <tr>
+        <td>mdp-width</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-height</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #e92a1c">✖</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-margin</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+      <tr>
+        <td>mdp-padding</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+        <td style="color: #74e91c">✔</td>
+      </tr>
+    </table>
+
+    <p mdp-position="middle" style="color: #a0a0a0">
+      Made by
+      <a style="color: #a0a0a0" href="https://marko.iric.online">Marko Irić</a>
+    </p>
+
+    <script>
+      setTimeout(() => {
+        let favicon_video_image_counter = 0;
+        let favicon_video_icon_tag = document.querySelector("link[rel='icon']");
+        let favicon_video_images = [
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/eb25e05e30049.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/4c39fce58b04f.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/303d392e42ec1.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/83d799ffa6c47.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/3ae95f12074c2.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/ead26aa7d9e1b.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/8d49e2bae57e5.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/3a58f4bb869e9.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/e56942a4f01e4.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/c7d45e31cb0f1.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/23ceb002e77bf.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/16963de51943a.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/9b909f5d90102.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/35bb59717b7ad.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/954c4276cfa68.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/1405fb69e5606.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/8b420a1417e75.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/12e4c31b46fbc.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/77a225dc094.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/cc4d1352178e5.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/eb2b7ca1882fd.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/fd565db460439.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/50acd28da3f13.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/d62f2ef7abee4.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/fa0f16f91953e.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/3f5ada26f5e8.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/ff213674e9301.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/89001292f73d8.ico",
+          "https://raw.githubusercontent.com/mark0o/mdp/refs/heads/main/animated%20favicon/492a2e7e16635.ico",
+        ];
+        async function favicon_video_to_data_url(url, callback) {
+          let xhr = new XMLHttpRequest();
+          xhr.onload = function () {
+            let reader = new FileReader();
+            reader.onloadend = function () {
+              callback(reader.result);
+            };
+            reader.readAsDataURL(xhr.response);
+          };
+          xhr.open("GET", url);
+          xhr.responseType = "blob";
+          xhr.send();
+        }
+
+        let favicon_video_loaded_images = [];
+
+        favicon_video_images.map((url, idx) => {
+          favicon_video_to_data_url(url, function (dataUrl) {
+            favicon_video_loaded_images[idx] = dataUrl;
+          });
+        });
+
+        setInterval(function () {
+          if (favicon_video_loaded_images[favicon_video_image_counter]) {
+            favicon_video_icon_tag.href = favicon_video_loaded_images[
+              favicon_video_image_counter
+            ].replace("application/octet-stream", "image/png");
+          }
+          if (
+            favicon_video_image_counter ==
+            favicon_video_loaded_images.length - 1
+          )
+            favicon_video_image_counter = 0;
+          else favicon_video_image_counter++;
+        }, 100);
+      }, 2000);
+    </script>
   </body>
 </html>

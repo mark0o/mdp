@@ -166,6 +166,17 @@ html {
         transparent 1%
       ) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: -webkit-gradient(
         linear,
         left top,
@@ -685,6 +696,106 @@ table tr:first-child th {
     -ms-user-select: none;
     user-select: none;
   }
+}
+
+div.mdp-loadingScreen95891698 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-transition: 250ms cubic-bezier(0, 0, 0.2, 1);
+  -o-transition: 250ms cubic-bezier(0, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0, 0, 0.2, 1);
+  opacity: 1;
+  width: 100svw;
+  height: 100svh;
+  font-size: 7vmin;
+  font-weight: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  --dot-bg: #151515;
+  --dot-color: #242424;
+  --dot-size: 2px;
+  --dot-space: 22px;
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(var(--dot-bg)),
+        color-stop(1%, transparent)
+      )
+      center / var(--dot-space) var(--dot-space),
+    -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(var(--dot-bg)),
+        color-stop(1%, transparent)
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
 }
 
 `
