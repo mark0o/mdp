@@ -808,13 +808,10 @@ function convertMdpDropdown() {
 
   mdpDropdowns.forEach(mdpDropdown => {
     if (!mdpDropdown.closest('code')) {
-      const div = document.createElement('div');
-      div.classList.add('mdp-dropdown');
-
       const mdpWidth = mdpDropdown.getAttribute('mdp-width');
-      if (mdpWidth) {
-        div.style.width = mdpWidth;
-      }
+      const div = document.createElement('div');
+      div.style.visibility = "none";
+      div.classList.add('mdp-dropdown');
 
       const select = document.createElement('select');
       select.innerHTML = mdpDropdown.innerHTML;
@@ -829,9 +826,16 @@ function convertMdpDropdown() {
       div.appendChild(select);
 
       mdpDropdown.parentNode.replaceChild(div, mdpDropdown);
+
+      setTimeout(setWidth => {
+        div.style.width = mdpWidth;
+        div.style.visibility = "visible";
+      }, 0)
     }
   });
 }
+
+
 function setBackgroundColorByAttribute() {
   const elements = document.querySelectorAll('[mdp-bgColour]');
 
@@ -929,7 +933,6 @@ document.addEventListener("click", closeAllSelect);
 
 function setMarginFromMdpMargin() {
   const elements = document.querySelectorAll('[mdp-margin]');
-  console.log(elements)
 
   elements.forEach(element => {
     const mdpMarginValue = element.getAttribute('mdp-margin');
@@ -949,9 +952,23 @@ function setPaddingFromMdpPadding() {
 setMarginFromMdpMargin()
 setPaddingFromMdpPadding()
 
+if (document.querySelector("body").hasAttribute("mdp-show-loading-screen") === true) {
+  const loadingScreen = document.createElement('div');
+  loadingScreen.classList.add("mdp-loadingScreen95891698")
+  loadingScreen.innerHTML = "Loading...";
+  document.body.appendChild(loadingScreen);
+  window.onload = function () {
+    loadingScreen.style.opacity = 0;
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+    }, 250);
+  };
+}
+
 const script = document.createElement('script');
 script.src = 'https://marko.iric.online/mdp/prism.js';
 document.body.appendChild(script);
-const style = '<style>' + css + '</style>'
-document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + style
+const style = document.createElement('style');
+style.innerHTML = css;
+document.body.appendChild(style);
 
