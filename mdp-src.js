@@ -62,7 +62,7 @@ pre[class*="language-"] {
 }
 :not(pre) > code[mdp-display="block"][class*="language-"] {
   padding: 1em;
-  border-radius: 0.3em;
+  border-radius: 0.4em;
   overflow: auto;
   white-space: pre-wrap;
 }
@@ -138,12 +138,24 @@ pre[class*="language-"] {
 /* #############  END OF PRSIM CSS  ############## */
 
 html {
+  scroll-behavior: smooth;
   color: #fff;
   font-family: "Inter", sans-serif;
   --dot-bg: #151515;
   --dot-color: #242424;
   --dot-size: 2px;
   --dot-space: 22px;
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: -o-linear-gradient(
         left,
         var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
@@ -301,8 +313,40 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+input[type="radio"] {
+  all: unset;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-inline: 8px;
+  margin-block: 5px;
+  position: relative;
+  top: 4px;
+
+  outline: 2px solid #fff;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
+  transition: 150ms;
+}
+input[type="radio"] ~ label {
+  color: #fff;
+}
+
+input[type="radio"]:checked {
+  outline: 6px solid var(--main-colour);
+}
+
+input[type="checkbox"] {
+  all: initial;
+}
+
 button {
   all: unset;
+  text-align: center;
   font-weight: 800;
   cursor: pointer;
   background-color: var(--main-colour);
@@ -668,6 +712,22 @@ table tr:first-child th {
   outline: none;
 }
 
+table tr:first-child::-moz-selection,
+table tr:first-child td::-moz-selection,
+table tr:first-child th::-moz-selection {
+  background-color: #fff;
+  color: var(--main-colour);
+  outline: none;
+}
+
+table tr:first-child::selection,
+table tr:first-child td::selection,
+table tr:first-child th::selection {
+  background-color: #fff;
+  color: var(--main-colour);
+  outline: none;
+}
+
 @media screen and (max-width: 800px) {
   [mdp-hide-on-small-screens] {
     all: unset;
@@ -757,6 +817,17 @@ div.mdp-loadingScreen95891698 {
         transparent 1%
       ) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+  background: -o-linear-gradient(
+        left,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    -o-linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      ) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
   background: -webkit-gradient(
         linear,
         left top,
@@ -796,6 +867,137 @@ div.mdp-loadingScreen95891698 {
       )
       center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 16px;
+}
+
+*[mdp-topnav] {
+  z-index: 9999999998;
+  position: fixed;
+  top: 1em;
+  left: 50%;
+  -webkit-transform: translate(calc(-50% - 1em));
+  -ms-transform: translate(calc(-50% - 1em));
+  transform: translate(calc(-50% - 1em));
+  overflow: hidden;
+  margin-inline: 1em;
+  width: calc(100% - 2em);
+  max-width: 800px;
+  /* From https://css.glass */
+  background: rgba(44, 44, 44, 0.44);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.5px);
+  -webkit-backdrop-filter: blur(11.5px);
+  border: 1px solid rgba(44, 44, 44, 0.3);
+}
+
+*[mdp-topnav] a {
+  all: initial;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+*[mdp-topnav] a {
+  all: initial;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+*[mdp-topnav] a:last-child {
+  padding: 12px 16px;
+}
+
+*[mdp-topnav] a:active {
+  background-color: #ddd;
+  color: black;
+}
+
+*[mdp-topnav] .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  *[mdp-topnav-menu-closed] a:not(:first-child) {
+    display: none;
+  }
+  *[mdp-topnav] a.icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  *[mdp-topnav-menu-open] {
+    position: fixed;
+    top: 1em;
+    left: 50%;
+    -webkit-transform: translate(calc(-50% - 1em));
+    -ms-transform: translate(calc(-50% - 1em));
+    transform: translate(calc(-50% - 1em));
+    overflow: hidden;
+    margin-inline: 1em;
+    width: calc(100% - 2em);
+    max-width: 1000px;
+    /* From https://css.glass */
+    background: rgba(44, 44, 44, 0.44);
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.5px);
+    -webkit-backdrop-filter: blur(11.5px);
+    border: 1px solid rgba(44, 44, 44, 0.3);
+  }
+  *[mdp-topnav-menu-closed] .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  *[mdp-topnav-menu-open] a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+mdp-custom-cursor {
+  z-index: 9999999999;
+  display: block;
+  unicode-bidi: -webkit-isolate;
+  unicode-bidi: -moz-isolate;
+  unicode-bidi: isolate;
+  height: 30px;
+  width: 30px;
+  mix-blend-mode: difference;
+  background-color: #fff;
+  border-radius: 50%;
+  -webkit-transition: border-radius 150ms;
+  -o-transition: border-radius 150ms;
+  transition: border-radius 150ms;
+  display: inline-block;
+  position: fixed;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+li {
+  margin-block: 6px;
 }
 
 `
@@ -1076,10 +1278,169 @@ if (document.querySelector("body").hasAttribute("mdp-show-loading-screen") === t
   };
 }
 
+
+function iconAppearMenu() {
+  var x = document.querySelector("[mdp-topnav]");
+  if (x.hasAttribute("mdp-topnav-menu-closed") === true) {
+    x.setAttribute("mdp-topnav-menu-open", "")
+    x.removeAttribute("mdp-topnav-menu-closed", "")
+  } else {
+    x.setAttribute("mdp-topnav-menu-closed", "")
+    x.removeAttribute("mdp-topnav-menu-open", "")
+  }
+}
+
+function convertMdpNavbarToDiv() {
+  const mdpNavbars = document.querySelectorAll('mdp-navbar');
+  if (mdpNavbars.length > 1) {
+    console.error('Only one <mdp-navbar> permited per page');
+    const firstNavbar = mdpNavbars[0];
+
+    // Hide all other mdp-navbar elements
+    for (let i = 1; i < mdpNavbars.length; i++) {
+      mdpNavbars[i].style.display = 'none';
+    }
+  }
+
+  // Rest of the conversion logic...
+
+  const mdpNavbar = document.getElementById('myTopnav');
+  if (!mdpNavbar) {
+    console.error('Element with ID "myTopnav" not found.');
+    return;
+  }
+
+  const divElement = document.createElement('div');
+  divElement.setAttribute('mdp-topnav', '');
+  divElement.setAttribute('mdp-topnav-menu-closed', '');
+  divElement.id = 'myTopnav';
+
+  const mdpItems = mdpNavbar.querySelectorAll('mdp-item');
+  mdpItems.forEach(mdpItem => {
+    const href = mdpItem.getAttribute('mdp-destination');
+    const text = mdpItem.textContent;
+    const anchorElement = document.createElement('a');
+    anchorElement.href = href;
+    anchorElement.classList.add(mdpItem.hasAttribute('mdp-active') ? 'active' : '');
+    anchorElement.textContent = text;
+    divElement.appendChild(anchorElement);
+  });
+
+  const iconAnchor = document.createElement('a');
+  iconAnchor.href = 'javascript:void(0);';
+  iconAnchor.classList.add('icon');
+  iconAnchor.setAttribute('onclick', 'iconAppearMenu()');
+  const iconSpan = document.createElement('span');
+  iconSpan.classList.add('material-symbols-rounded');
+  iconSpan.textContent = ' menu ';
+  iconAnchor.appendChild(iconSpan);
+  divElement.appendChild(iconAnchor);
+
+  mdpNavbar.parentNode.replaceChild(divElement, mdpNavbar);
+}
+
+convertMdpNavbarToDiv();
+
+function migrateMdpWidthToStyle() {
+  const elementsWithMdpWidth = document.querySelectorAll('[mdp-width]');
+
+  elementsWithMdpWidth.forEach(element => {
+    const widthValue = element.getAttribute('mdp-width');
+    element.style.width = widthValue;
+    element.removeAttribute('mdp-width');
+  });
+}
+
+migrateMdpWidthToStyle();
+
+function checkDevice() {
+  const ua = navigator.userAgent;
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+  if (isMobile) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function setMouse() {
+  if (document.querySelector("body").hasAttribute("mdp-custom-cursor") === true) {
+    document.querySelector("body").style.cursor = "none"
+    const cursor = document.createElement('mdp-custom-cursor');
+    document.body.appendChild(cursor);
+    let deviceTypeMobile = checkDevice();
+
+    document.addEventListener('mousemove',
+      function (event) {
+        if (deviceTypeMobile === false) {
+          cursor.style.visibility = "visible"
+        }
+        cursor.style.left = event.clientX - 15 + 'px';
+        cursor.style.top = event.clientY - 15 + 'px';
+      });
+
+    const links = document.querySelectorAll('a, button');
+
+    links.forEach(link => {
+      link.addEventListener('mouseover', () => {
+        cursor.style.borderRadius = '25%';
+      });
+
+      link.addEventListener('mouseout', () => {
+        cursor.style.borderRadius = '50%';
+      });
+    });
+
+    const all = document.querySelectorAll('*');
+    all.forEach(element => {
+      element.style.cursor = "none"
+    });
+  }
+}
+
+function addLabelsToRadioInputs() {
+  const htmlContent = document.documentElement.innerHTML;
+
+  const radioInputs = document.querySelectorAll('input[type="radio"][mdp-label]');
+
+  radioInputs.forEach(input => {
+    let randomId;
+    do {
+      randomId = `mdp-randId-${generateRandomString(1)}`;
+    } while (htmlContent.includes(randomId));
+
+    input.id = randomId;
+
+    const label = document.createElement('label');
+    label.setAttribute('for', randomId);
+    label.textContent = input.getAttribute('mdp-label');
+
+    input.parentNode.insertBefore(label, input.nextSibling);
+  });
+}
+
+function generateRandomString(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+
+// Call the function to add labels
+addLabelsToRadioInputs();
+
+
+setMouse()
+const icons = `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />`
+document.querySelector("head").innerHTML = document.querySelector("head").innerHTML + icons
 const script = document.createElement('script');
 script.src = 'https://marko.iric.online/mdp/prism.js';
 document.body.appendChild(script);
 const style = document.createElement('style');
 style.innerHTML = css;
 document.body.appendChild(style);
+
 
